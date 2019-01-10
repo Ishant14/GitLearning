@@ -85,5 +85,52 @@ Here’s the example:
 git stash apply stash@{1}
 ```
 
+## Git stash pop
 
-  
+This command is very similar to stash apply but it deletes the stash from the stack after it is applied.
+
+Likewise, if you want a particular stash to pop you can specify the stash id.
+
+```
+git stash pop stash@{1}
+```
+
+## Git stash show
+
+This command shows the summary of the stash diffs. The above command considers only the latest stash.
+ 
+ If you want to see the full diff, you can use
+
+```
+git stash show -p
+```
+
+Likewise with other commands, you can also specify the stash id to get the diff summary.
+
+```
+git stash show stash@{1}
+```
+
+## Git stash branch <name>
+ 
+This command creates a new branch with the latest stash, and then deletes the latest stash ( like stash pop).
+
+If you need a particular stash you can specify the stash id.
+
+```
+git stash branch <name> stash@{1}
+```
+
+## Git stash clear
+
+This command deletes all the stashes made in the repo. It maybe impossible to revert.
+
+## Git stash drop
+
+This command deletes the latest stash from the stack. But use it with caution, it maybe be difficult to revert.
+
+You can also specify the stash id.
+
+```
+git stash drop stash@{1}
+```
