@@ -57,7 +57,7 @@ git stash save “Your stash message”.
 
 ## Stashing untracked files
 
- ###You can also stash untracked files.
+ ### You can also stash untracked files.
 
 ```
 git stash save -u 
