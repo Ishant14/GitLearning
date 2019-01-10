@@ -1,9 +1,5 @@
 # GitLearning
 
-## git init
-
-Using init command we initialise the local directory as git project.
-
 ## git project stages :->
 
 A Git project can be thought of as having three parts:
@@ -34,3 +30,21 @@ Use Git commands to help keep track of changes made to a project:
 The format of the log output is very flexible. For example to output each commit on a single line the command is 
 
 `git log --pretty=format:"%h %an %ar - %s"`
+
+
+# Git Stash 
+
+Here are some of the useful tricks I learned about Git stash last week.
+
+1. Git stash save
+2. Git stash list
+3. Git stash apply
+4. Git stash pop
+5. Git stash show
+6. Git stash branch <name>
+7. Git stash clear
+8. Git stash drop
+  
+
+
+  
