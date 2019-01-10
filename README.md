@@ -45,6 +45,45 @@ Here are some of the useful tricks I learned about Git stash last week.
 7. Git stash clear
 8. Git stash drop
   
+## Git stash save
+
+This command is like Git stash. But this command comes with various options. I will discuss some important options in this post.
+
+## Git stash with message
+
+```
+git stash save “Your stash message”.
+```
+
+## Stashing untracked files
+
+ ###You can also stash untracked files.
+
+```
+git stash save -u 
+or
+git stash save --include-untracked
+```
+
+## Git stash list
+
+```
+git stash list
+```
+
+You can see the list of stashes made. And the most recent stash made is in the top.
+
+## Git stash apply
+
+This command takes the top most stash in the stack and applies it to the repo. In our case it is ```stash@{0}```
+
+If you want to apply some other stash you can specify the stash id.
+
+Here’s the example:
+
+```
+git stash apply stash@{1}
+```
 
 
   
