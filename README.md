@@ -144,4 +144,38 @@ git stash drop stash@{1}
 - ```git reset --hard 852309``` will remove all commits after commit 852309 and destroy all changed code after that. This will also remove changed file in working or staging area. Hence git reset --hard HEAD is also used to get rid of all the changes whether it is inside the working area or the staging area. One important thing to remember is that all untracked files (newly created files) will not be removed.
 
 
+## How to remove the mistakenly added file from the commit ?
 
+- First use the soft reset and bring the commit chnages to the staging area using below command 
+
+```git reset --soft HEAD^ 
+```
+or
+```
+git reset --soft HEAD~1
+```
+
+- Then reset the unwanted files in order to leave them out from the commit:
+
+```
+git reset HEAD path/to/unwanted_file
+```
+
+Now commit again, you can even re-use the same commit message:
+
+```
+git commit -c ORIG_HEAD  
+```
+
+Using above method you will creating new commit.**If this is your last commit and you want to completely delete the file from your local and the remote repository, you can:**
+
+- remove the file ```git rm <file>```
+- commit with amend flag: ```git commit --amend```
+
+*The amend flag tells git to commit again, but "merge" (not in the sense of merging two branches) this commit with the last commit.*
+
+
+
+
+
+## 
