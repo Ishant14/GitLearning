@@ -134,3 +134,14 @@ You can also specify the stash id.
 ```
 git stash drop stash@{1}
 ```
+
+## How to discard the last commit ?
+
+- ```git reset --soft 852309``` will remove all commits after commit 852309 and will bring all changed code after that into the staging area. You don’t need to use the full hash of a commit. All commits after this commit are then removed from git history.
+
+- ```git reset --mixed 852309``` will remove all commits after commit 852309 and will bring the changed code after that to the working area. This command is the same as git reset 852309.
+
+- ```git reset --hard 852309``` will remove all commits after commit 852309 and destroy all changed code after that. This will also remove changed file in working or staging area. Hence git reset --hard HEAD is also used to get rid of all the changes whether it is inside the working area or the staging area. One important thing to remember is that all untracked files (newly created files) will not be removed.
+
+
+
