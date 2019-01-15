@@ -167,7 +167,7 @@ Now commit again, you can even re-use the same commit message:
 git commit -c ORIG_HEAD  
 ```
 
-Using above method you will creating new commit.**If this is your last commit and you want to completely delete the file from your local and the remote repository, you can:**
+Using above method you will be creating new commit.**If this is your last commit and you want to completely delete the file from your local and the remote repository, you can:**
 
 - remove the file ```git rm <file>```
 - commit with amend flag: ```git commit --amend```
@@ -178,4 +178,20 @@ Using above method you will creating new commit.**If this is your last commit an
 
 
 
+## How to correct the spelling mistake on branch name
+
+We can rename the branch name on local using below command 
+
+```
+git branch -m feature-brunch feature-branch
+```
+
+If you have already pushed this branch, there are a couple of extra steps required. We need to delete the old branch from the remote and push up the new one:
+
+```
+git push origin --delete feature-brunch
+git push origin feature-branch
+```
+
 ## 
+
