@@ -252,7 +252,18 @@ git branch --merged
  
  # Most common Git mistakes and how to fix them
 
-**Scenario 1 : We have seen so far that if you are working with a team of people, then you should not touch the production branch which in our case is master. But what if you accidentally forgot to switch branch and made commits inside the master branch? You can’t just remove your commits using git reset and redo the work.**
+**Scenario 1 : We have seen so far that if you are working with a team of people, then you should not touch the production branch which in our case is ```master```. But what if you accidentally forgot to switch branch and made commits inside the master branch? You can’t just remove your commits using git reset and redo the work.**
+
+Lets say we had to work in ```dev``` branch and we forgot to create new and commit our changes to the master branch. So we will do the following in this case :
+
+- We will create a new branch ```dev``` from the ```master``` branch , the ```dev``` branch will contain the chnages which we accidently commited to the master . Now our motive is completed that we had to make the changes in dev branch and commit then. But our wrong commit to master branch is still there , we need to get rid of them as well . We will use the below commands for that.
+
+```
+git checkout master
+git reset --hard 1b2ed7 --- for more details u can re
+git clean -f -d
+```
+
 
 
 
