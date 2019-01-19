@@ -128,63 +128,6 @@ You can also specify the stash id.
 git stash drop stash@{1}
 ```
 
-## How to discard the last commit ?
-
-- ```git reset --soft 852309``` will remove all commits after commit 852309 and will bring all changed code after that into the staging area. You don’t need to use the full hash of a commit. All commits after this commit are then removed from git history.
-
-- ```git reset --mixed 852309``` will remove all commits after commit 852309 and will bring the changed code after that to the working area. This command is the same as git reset 852309.
-
-- ```git reset --hard 852309``` will remove all commits after commit 852309 and destroy all changed code after that. This will also remove changed file in working or staging area. Hence git reset --hard HEAD is also used to get rid of all the changes whether it is inside the working area or the staging area. One important thing to remember is that all untracked files (newly created files) will not be removed.
-
-
-## How to remove the mistakenly added file from the commit ?
-
-- First use the soft reset and bring the commit chnages to the staging area using below command 
-
-```git reset --soft HEAD^ 
-```
-or
-```
-git reset --soft HEAD~1
-```
-
-- Then reset the unwanted files in order to leave them out from the commit:
-
-```
-git reset HEAD path/to/unwanted_file
-```
-
-Now commit again, you can even re-use the same commit message:
-
-```
-git commit -c ORIG_HEAD  
-```
-
-Using above method you will be creating new commit.**If this is your last commit and you want to completely delete the file from your local and the remote repository, you can:**
-
-- remove the file ```git rm <file>```
-- commit with amend flag: ```git commit --amend```
-
-*The amend flag tells git to commit again, but "merge" (not in the sense of merging two branches) this commit with the last commit.*
-
-
-
-
-
-## How to correct the spelling mistake on branch name
-
-We can rename the branch name on local using below command 
-
-```
-git branch -m feature-brunch feature-branch
-```
-
-If you have already pushed this branch, there are a couple of extra steps required. We need to delete the old branch from the remote and push up the new one:
-
-```
-git push origin --delete feature-brunch
-git push origin feature-branch
-```
 
 # Branching 
 
@@ -243,9 +186,72 @@ git branch --merged
  git clean -f -d
  ```
  
+ ## Print the complete list of operation 
+ 
+```git reflog``` prints a complete list of previous operations. Latest operation will be at top. It will also show the HEAD on left when that operation was performed.
+ 
  # Most common Git mistakes and how to fix them
+ 
+ ## How to discard the last commit ?
 
-**Scenario 1 : We have seen so far that if you are working with a team of people, then you should not touch the production branch which in our case is ```master```. But what if you accidentally forgot to switch branch and made commits inside the master branch? You can’t just remove your commits using git reset and redo the work.**
+- ```git reset --soft 852309``` will remove all commits after commit 852309 and will bring all changed code after that into the staging area. You don’t need to use the full hash of a commit. All commits after this commit are then removed from git history.
+
+- ```git reset --mixed 852309``` will remove all commits after commit 852309 and will bring the changed code after that to the working area. This command is the same as git reset 852309.
+
+- ```git reset --hard 852309``` will remove all commits after commit 852309 and destroy all changed code after that. This will also remove changed file in working or staging area. Hence git reset --hard HEAD is also used to get rid of all the changes whether it is inside the working area or the staging area. One important thing to remember is that all untracked files (newly created files) will not be removed.
+
+
+## How to remove the mistakenly added file from the commit ?
+
+- First use the soft reset and bring the commit chnages to the staging area using below command 
+
+```git reset --soft HEAD^ 
+```
+or
+```
+git reset --soft HEAD~1
+```
+
+- Then reset the unwanted files in order to leave them out from the commit:
+
+```
+git reset HEAD path/to/unwanted_file
+```
+
+Now commit again, you can even re-use the same commit message:
+
+```
+git commit -c ORIG_HEAD  
+```
+
+Using above method you will be creating new commit.**If this is your last commit and you want to completely delete the file from your local and the remote repository, you can:**
+
+- remove the file ```git rm <file>```
+- commit with amend flag: ```git commit --amend```
+
+*The amend flag tells git to commit again, but "merge" (not in the sense of merging two branches) this commit with the last commit.*
+
+
+
+
+
+## How to correct the spelling mistake on branch name
+
+We can rename the branch name on local using below command 
+
+```
+git branch -m feature-brunch feature-branch
+```
+
+If you have already pushed this branch, there are a couple of extra steps required. We need to delete the old branch from the remote and push up the new one:
+
+```
+git push origin --delete feature-brunch
+git push origin feature-branch
+```
+
+
+## We have seen so far that if you are working with a team of people, then you should not touch the production branch which in our case is ```master```. But what if you accidentally forgot to switch branch and made commits inside the master branch? You can’t just remove your commits using git reset and redo the work.
 
 Lets say we had to work in ```dev``` branch and we forgot to create new and commit our changes to the master branch. So we will do the following in this case :
 
@@ -263,7 +269,7 @@ git reset --hard 1b2ed7
 git clean -f -d
 ```
 
-**Scenario 2 : What if we made commit(s) in the master branch by accident and we also have the dev branch present? We could create another branch besides dev but let’s assume that we must work in dev branch. Then somehow, we have to bring the commit from master branch to dev branch**
+## What if we made commit(s) in the master branch by accident and we also have the dev branch present? We could create another branch besides dev but let’s assume that we must work in dev branch. Then somehow, we have to bring the commit from master branch to dev branch
 
 In this scenario we already have both the branches created on the remote. So first we will use "git log" command on master branch check the commit id of the wrong commit we did on master local branch. Lets say the wrong commit id is ```07762b```.
 Now we will chekcout the ```dev``` branch .
@@ -283,6 +289,7 @@ git checkout master
 git reset --hard 1b2ed7 
 git clean -f -d
 ```
+
 
 
 
