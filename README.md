@@ -193,5 +193,7 @@ git push origin --delete feature-brunch
 git push origin feature-branch
 ```
 
-## 
+# Branching 
+
+## To check on which branch we are currently working we use below command 
 
