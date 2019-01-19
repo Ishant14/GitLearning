@@ -226,6 +226,29 @@ git checkout dev
  git merge dev
  ```
  
+- To check if any branches ever merged with current branch which is master, you can use the command below.
+
+```
+git branch --merged
+ ```
+ 
+ - To delete a local branch 
+ 
+ ```
+ git branch -d dev
+ ```
+ 
+ - To delete remote dev branch as well, you need to use the command below.
+ 
+ ```
+ git push --delete origin dev
+ ```
+ 
+ ## To delete any untracted file or folder from working area , we use below command :
+ 
+ ```
+ git clean -f -d
+ ```
  
  
  
