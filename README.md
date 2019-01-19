@@ -195,5 +195,40 @@ git push origin feature-branch
 
 # Branching 
 
-## To check on which branch we are currently working we use below command 
+- **To check on which branch we are currently working we use below command**
+
+```
+git branch
+```
+- **To create a branch, you need to use following command**
+
+```
+git branch dev
+```
+
+- Above will create dev branch but we are still under master branch. To enter inside dev branch, we need to use checkout the branch using the command below.
+
+```
+git checkout dev
+```
+
+- *The above two steps can be carried out at once using ```git checkout -b dev``` command which will create and checkout branch at the same time.*
+
+- **To check all local and remote branches, use**
+
+```
+ git branch -a
+ ```
+ 
+ - **To merge one branch into another branch**. Lets say if we are currently on master branch and we want to merge dev branch into it. We will use below command.
+ 
+ ```
+ git merge dev
+ ```
+ 
+ 
+ 
+ 
+
+
 
