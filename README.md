@@ -189,6 +189,21 @@ git branch --merged
  ## Print the complete list of operation 
  
 ```git reflog``` prints a complete list of previous operations. Latest operation will be at top. It will also show the HEAD on left when that operation was performed.
+
+```
+3ff8691 (HEAD -> feature-branch) HEAD@{0}: Branch: renamed refs/heads/feature-brunch to refs/heads/feature-branch
+3ff8691 (HEAD -> feature-branch) HEAD@{2}: checkout: moving from master to feature-brunch
+2b7e508 (master) HEAD@{3}: reset: moving to HEAD~
+3ff8691 (HEAD -> feature-branch) HEAD@{4}: commit: Adds the client logo
+2b7e508 (master) HEAD@{5}: reset: moving to HEAD~1
+37a632d HEAD@{6}: commit: Adds the client logo to the project
+2b7e508 (master) HEAD@{7}: reset: moving to HEAD
+2b7e508 (master) HEAD@{8}: commit (amend): Added contributing info to the site
+dfa27a2 HEAD@{9}: reset: moving to HEAD
+dfa27a2 HEAD@{10}: commit (amend): Added contributing info to the site
+700d0b5 HEAD@{11}: commit: Addded contributing info to the site
+efba795 HEAD@{12}: commit (initial): Initial commit
+```
  
  # Most common Git mistakes and how to fix them
  
