@@ -1,7 +1,7 @@
 This repository contains all basic git commands which we genraklly use on our day to day work life. Apart from the common commands it also contains few common scenario where we make mistake and how to fix them.
 
 
-# Git project stages :->
+# Git project stages :
 
 A Git project can be thought of as having three parts:
 
