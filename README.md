@@ -220,9 +220,10 @@ efba795 HEAD@{12}: commit (initial): Initial commit
 
 - First use the soft reset and bring the commit chnages to the staging area using below command 
 
-```git reset --soft HEAD^ 
-```
+```git reset --soft HEAD^```
+
 or
+
 ```
 git reset --soft HEAD~1
 ```
