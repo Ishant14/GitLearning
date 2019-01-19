@@ -256,13 +256,41 @@ git branch --merged
 
 Lets say we had to work in ```dev``` branch and we forgot to create new and commit our changes to the master branch. So we will do the following in this case :
 
-- We will create a new branch ```dev``` from the ```master``` branch , the ```dev``` branch will contain the chnages which we accidently commited to the master . Now our motive is completed that we had to make the changes in dev branch and commit then. But our wrong commit to master branch is still there , we need to get rid of them as well . We will use the below commands for that.
+We will create a new branch ```dev``` from the ```master``` branch , the ```dev``` branch will contain the chnages which we accidently commited to the master . 
+
+```
+git checkout -b dev
+```
+
+Now our motive is completed that we had to make the changes in dev branch and commit then. But our wrong commit to master branch is still there , we need to get rid of them as well . We will use the below commands for that.
 
 ```
 git checkout master
-git reset --hard 1b2ed7 --- for more details u can re
+git reset --hard 1b2ed7 
 git clean -f -d
 ```
+
+**Scenario 2 : What if we made commit(s) in the master branch by accident and we also have the dev branch present? We could create another branch besides dev but let’s assume that we must work in dev branch. Then somehow, we have to bring the commit from master branch to dev branch**
+
+In this scenario we already have both the branches created on the remote. So first we will use "git log" command on master branch check the commit id of the wrong commit we did on master local branch. Lets say the wrong commit id is ```07762b```.
+Now we will chekcout the ```dev``` branch .
+
+```git checkout dev```
+
+Now, we have to bring this commit(07762b) from the master branch. ***As we discussed, commits do not belong to any branch. They are unique and branches only reference them. Hence, we can just instruct Git to bring the 07762b commit without telling from which branch or branches reference it.*** This is done using ```cherry-pick```.
+
+```
+git cherry-pick 07762b
+```
+
+But our wrong  commit is still there on thr master branch and to get rid of that we will follow the same process as we followed above :
+
+```
+git checkout master
+git reset --hard 1b2ed7 
+git clean -f -d
+```
+
 
 
 
