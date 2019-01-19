@@ -250,6 +250,13 @@ git branch --merged
  git clean -f -d
  ```
  
+ # Most common Git mistakes and how to fix them
+
+## Scenario 1 : We have seen so far that if you are working with a team of people, then you should not touch the production branch which in our case is master. But what if you accidentally forgot to switch branch and made commits inside the master branch? You can’t just remove your commits using git reset and redo the work.
+
+
+ 
+ 
  
  
 
