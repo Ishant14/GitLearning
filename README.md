@@ -266,6 +266,17 @@ git push origin --delete feature-brunch
 git push origin feature-branch
 ```
 
+## Forgot to add a file to that last commit
+
+Another common Git pitfall is committing too early. You missed a file, forgot to save it, or need to make a minor change for the last commit to make sense. ```--amend``` is your friend once again.
+
+Add that missed file then run that trusty command.
+
+```
+git add missed-file.txt
+git commit --amend
+```
+
 
 ## We have seen so far that if you are working with a team of people, then you should not touch the production branch which in our case is ```master```. But what if you accidentally forgot to switch branch and made commits inside the master branch? You can’t just remove your commits using git reset and redo the work.
 
